@@ -45,4 +45,8 @@ public class Cars {
 				.map(Car::getCarName)
 				.collect(Collectors.toList());
 	}
+
+	public List<Car> getCars() {
+		return this.cars;
+	}
 }
