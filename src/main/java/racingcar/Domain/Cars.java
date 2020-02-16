@@ -15,10 +15,11 @@ import java.util.stream.Collectors;
  */
 
 public class Cars {
+	private static final String NULL_INPUT_EXCEPTION_MESSAGE = "null이 입력되어 Cars 객체가 제대로 생성될 수 없습니다.";
 	private final List<Car> cars;
 
 	public Cars(final List<Car> inputCars) {
-		Objects.requireNonNull(inputCars);
+		Objects.requireNonNull(inputCars, NULL_INPUT_EXCEPTION_MESSAGE);
 		validateCars(inputCars);
 		this.cars = Collections.unmodifiableList(inputCars);
 	}
@@ -43,9 +44,5 @@ public class Cars {
 				.filter(car -> car.isSamePosition(topCarPosition))
 				.map(Car::getCarName)
 				.collect(Collectors.toList());
-	}
-
-	public List<Car> getCars() {
-		return this.cars;
 	}
 }
