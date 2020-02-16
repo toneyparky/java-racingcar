@@ -2,6 +2,7 @@ package racingcar.Util;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 /**
@@ -17,15 +18,19 @@ import java.util.stream.Collectors;
 
 public class StringUtils {
 	private static final String DELIMITER = ",";
+	private static final String CAR_NAME_NULL_EXCEPTION_MESSAGE = "차 이름으로는 null이 입력될 수 없습니다.";
+	private static final String CAR_NAMES_NULL_EXCEPTION_MESSAGE = "차 이름들로는 null이 입력될 수 없습니다.";
 
 	private StringUtils() {
 	}
 
 	public static List<String> splitCarNames(final String carNameInput) {
+		Objects.requireNonNull(carNameInput, CAR_NAME_NULL_EXCEPTION_MESSAGE);
 		return Arrays.asList(carNameInput.split(DELIMITER));
 	}
 
 	public static List<String> trimCarNames(final List<String> carNamesInput) {
+		Objects.requireNonNull(carNamesInput, CAR_NAMES_NULL_EXCEPTION_MESSAGE);
 		return carNamesInput.stream()
 				.map(String::trim)
 				.collect(Collectors.toList());
