@@ -18,6 +18,7 @@ public class Main {
 	public static void main(String[] args) {
 		try {
 			Game game = new Game();
+			game.initialize();
 			game.race();
 			game.showWinner();
 		} catch (Exception e) {

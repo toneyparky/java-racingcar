@@ -30,18 +30,28 @@ public class Game {
 	private static final String NAME_DIVIDER = ", ";
 
 	private Cars cars;
-	private final TrialTime trialTime;
+	private TrialTime trialTime;
 
 	public Game() {
-		List<Car> separatedCars = new ArrayList<>();
+	}
 
+	public void initialize() {
+		initializeCars();
+		initializeTrialTime();
+	}
+
+	private void initializeTrialTime() {
+		int inputTrialTime = InputView.inputTrialTime();
+		this.trialTime = new TrialTime(inputTrialTime);
+	}
+
+	private void initializeCars() {
+		List<Car> separatedCars = new ArrayList<>();
 		String inputCarName = InputView.inputCarName();
 		List<String> carNames = StringUtils.splitCarNames(inputCarName);
 		carNames = StringUtils.trimCarNames(carNames);
 		carNames.forEach(carName -> separatedCars.add(new Car(carName)));
 		cars = new Cars(separatedCars);
-		int inputTrialTime = InputView.inputTrialTime();
-		this.trialTime = new TrialTime(inputTrialTime);
 	}
 
 	public void race() {
