@@ -1,6 +1,6 @@
 package racingcar.Util;
 
-import java.util.Random;
+import java.util.*;
 
 /**
  * 클래스 이름 : RandomNumberUtils.java
@@ -14,16 +14,15 @@ import java.util.Random;
  */
 
 public class RandomNumberUtils {
-	private static final int RANDOM_UPPER_LIMIT = 10;
-
-	private static Random random = new Random();
+	private static List<Integer> numbers = new ArrayList<>(
+			Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
+	);
 
 	private RandomNumberUtils() {
 	}
 
 	public static int createRandomNumber() {
-		return random.nextInt(RANDOM_UPPER_LIMIT);
+		Collections.shuffle(numbers);
+		return numbers.get(0);
 	}
-
-
 }
