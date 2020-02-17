@@ -22,7 +22,7 @@ public class Position {
 	private int position;
 
 	public Position() {
-		this.position = DEFAULT_POSITION;
+		this(DEFAULT_POSITION);
 	}
 
 	public Position(final Integer inputPosition) {
