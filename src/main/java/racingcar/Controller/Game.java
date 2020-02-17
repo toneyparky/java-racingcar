@@ -65,7 +65,7 @@ public class Game {
 	private void raceOneRound() {
 		for (Car car : cars.getCars()) {  // TODO getCars안쓰는 방법 찾아보기
 			car.goOrNot(RandomNumberUtils.createRandomNumber());
-			car.showCurrentPosition();
+			OutputView.printCurrentCarPosition(car);
 		}
 	}
 

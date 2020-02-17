@@ -19,8 +19,6 @@ import racingcar.View.OutputView;
 
 public class Car {
 	private static final int CRITERIA_FOR_GO = 4;
-	private static final String POSITION_INDICATOR = "-";
-	private static final String COLON = " : ";
 
 	private final Name carName;
 	private final Position position;
@@ -46,15 +44,6 @@ public class Car {
 
 	public boolean comparePosition(final Car target) {
 		return this.position.comparePosition(target.position);
-	}
-
-	public void showCurrentPosition() {
-		StringBuilder outputValue = new StringBuilder();
-		outputValue.append(carName.getName()).append(COLON);
-		for (int index = 0, position = this.getPosition().getPosition(); index < position; index++) {
-			outputValue.append(POSITION_INDICATOR);
-		}
-		OutputView.printPositionByDash(outputValue.toString());
 	}
 
 	public boolean isSamePosition(final int targetCarPosition) {
