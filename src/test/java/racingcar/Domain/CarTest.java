@@ -30,7 +30,7 @@ public class CarTest {
 	}
 
 	@Test
-	@DisplayName("car 안 움직이기 테스트")
+	@DisplayName("3이하일 경우 움직이지 않는다.")
 	void goOrNot_랜덤숫자가_3이하라서_position_moveForward_실행안함() {
 		final int randomNumber = 3;
 		final Car car = new Car("toney");
@@ -40,7 +40,7 @@ public class CarTest {
 	}
 
 	@Test
-	@DisplayName("car 움직이기 테스트")
+	@DisplayName("4이상일 경우 움직인다.")
 	void goOrNot_랜덤숫자가_4이상일때만_position_moveForward() {
 		final int randomNumber = 4;
 		final Car car = new Car("toney");
