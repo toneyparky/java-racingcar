@@ -15,9 +15,9 @@ import java.util.Objects;
 
 public class Position {
 	private static final String POSITION_CAN_NOT_BE_NULL_EXCEPTION_MESSAGE = "자동차 위치는 null일 수 없습니다.";
-	private static final String POSITION_CAN_BE_ONLY_POSITIVE_EXCEPTION_MESSAGE = "양수만 입력해야합니다.";
-	private static final int DEFAULT_POSITION = 1;
-	private static final int POSITION_LOWER_BOUNDARY = 1;
+	private static final String POSITION_CAN_NOT_BE_NEGATIVE_EXCEPTION_MESSAGE = "음수는 입력할 수 없습니다.";
+	private static final int DEFAULT_POSITION = 0;
+	private static final int POSITION_LOWER_BOUNDARY = 0;
 
 	private int position;
 
@@ -33,7 +33,7 @@ public class Position {
 
 	private void validatePosition(final Integer inputPosition) {
 		if (inputPosition < POSITION_LOWER_BOUNDARY) {
-			throw new IllegalArgumentException(POSITION_CAN_BE_ONLY_POSITIVE_EXCEPTION_MESSAGE);
+			throw new IllegalArgumentException(POSITION_CAN_NOT_BE_NEGATIVE_EXCEPTION_MESSAGE);
 		}
 	}
 
@@ -43,6 +43,10 @@ public class Position {
 
 	public int getPosition() {
 		return this.position;
+	}
+
+	public boolean comparePosition(final Position targetPosition) {
+		return this.position > targetPosition.position;
 	}
 
 	@Override

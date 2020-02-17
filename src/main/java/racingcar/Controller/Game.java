@@ -40,11 +40,6 @@ public class Game {
 		initializeTrialTime();
 	}
 
-	private void initializeTrialTime() {
-		int inputTrialTime = InputView.inputTrialTime();
-		this.trialTime = new TrialTime(inputTrialTime);
-	}
-
 	private void initializeCars() {
 		List<Car> separatedCars = new ArrayList<>();
 		String inputCarName = InputView.inputCarName();
@@ -52,6 +47,11 @@ public class Game {
 		carNames = StringUtils.trimCarNames(carNames);
 		carNames.forEach(carName -> separatedCars.add(new Car(carName)));
 		cars = new Cars(separatedCars);
+	}
+
+	private void initializeTrialTime() {
+		int inputTrialTime = InputView.inputTrialTime();
+		this.trialTime = new TrialTime(inputTrialTime);
 	}
 
 	public void race() {

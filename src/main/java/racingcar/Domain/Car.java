@@ -45,7 +45,7 @@ public class Car {
 	}
 
 	public boolean comparePosition(final Car target) {
-		return this.position.getPosition() > target.position.getPosition();
+		return this.position.comparePosition(target.position);
 	}
 
 	public void showCurrentPosition() {
