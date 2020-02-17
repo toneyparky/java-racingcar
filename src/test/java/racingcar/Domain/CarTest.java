@@ -18,13 +18,6 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 
 public class CarTest {
-	private static Car car;
-
-	@BeforeEach
-	void setUp() {
-		car = new Car("보스독");
-	}
-
 	@Test
 	@DisplayName("Car 생성자 테스트")
 	void Car_생성자_정상_케이스_테스트() {
@@ -51,7 +44,7 @@ public class CarTest {
 	void goOrNot_랜덤숫자가_4이상일때만_position_moveForward() {
 		final int randomNumber = 4;
 		final Car car = new Car("toney");
-		final Position expectedPosition = new Position(2);
+		final Position expectedPosition = new Position(1);
 		car.goOrNot(randomNumber);
 		assertThat(car.getPosition()).isEqualTo(expectedPosition);
 	}
