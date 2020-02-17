@@ -26,8 +26,7 @@ public class Car {
 	private final Position position;
 
 	public Car(final String carName) {
-		this.carName = new Name(carName);
-		this.position = new Position();
+		this(carName, 0);
 	}
 
 	public Car(final String carName, final int position) {
